@@ -1,0 +1,60 @@
+body{
+    background-color: #fefae0;
+}
+
+.navbar{
+ display: flex;
+ gap: 1rem;
+}
+.border{
+    border: 1px solid black;
+    background-color: black;
+    margin-top: 10px;
+}
+
+#btn1{
+   
+    border-radius: 25px;
+    padding: 2px;
+    width: 5%;
+    box-shadow: 1px 3px 2px lightblue;
+
+}
+#btn2{
+    box-shadow: 1px 3px 2px lightgrey;
+    border-radius: 25px;
+    padding: 2px;
+    width: 5%;
+}
+#btn3{
+    box-shadow: 1px 3px 2px lightgreen;
+    border-radius: 25px;
+    padding: 2px;
+    
+}
+#btn4{
+    box-shadow: 1px 3px 2px lightgrey;
+
+    border-radius: 25px;
+    padding: 2px;
+}
+#btn5{
+    box-shadow: 1px 3px 2px lightblue;
+    border-radius: 25px;
+    padding: 2px;
+
+}
+a{
+  text-decoration: none;
+  padding: 2px;
+}
+
+.homepage{
+    margin-top: 100px;
+    text-align: center;
+}
+
+p{
+    padding-top: 10px;
+    text-align: center;
+}
