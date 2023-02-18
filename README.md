@@ -1,2 +1,2 @@
 # CalgaryHacks2023
-our implementation for the CalgaryHacks2023 theme
+### This repository contains our groups implementation for the 2023 Calgary Hacks event.  
