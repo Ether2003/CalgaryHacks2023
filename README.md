@@ -9,6 +9,6 @@
     <a href="https://github.com/HongDucAnhNguyen">Jay Nguyen</a>,
     <a href="https://github.com/KhadeejaAbbas">Centauri</a>, 
     <a href="https://github.com/akhalil95">AyeshaK</a>,
-    <a href="https://github.com/benjysboxers">Benjamin</a>,
+    <a href="https://github.com/benjysboxers">Benjamin</a>
   </h3>
 </div>
