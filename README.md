@@ -7,8 +7,8 @@
   <h3> 
     <a href="https://github.com/Ether2003">Refaat/Ether</a>, 
     <a href="https://github.com/HongDucAnhNguyen">Jay Nguyen</a>,
-    <a href="https://github.com/KhadeejaAbbas">Centauri</a>, 
-    <a href="https://github.com/akhalil95">AyeshaK</a>,
+    <a href="https://github.com/KhadeejaAbbas">Khadeeja</a>, 
+    <a href="https://github.com/akhalil95">Ayesha</a>,
     <a href="https://github.com/benjysboxers">Benjamin</a>
   </h3>
 </div>
