@@ -17,5 +17,23 @@ var markers = new mapboxgl.Marker();
 
 // add a marker when the map is clicked
 map.on("click", function (e) {
-  markers.setLngLat(e.lngLat).addTo(map);
+  var marker = new mapboxgl.Marker().setLngLat(e.lngLat).addTo(map);
+
+  var popup = new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(
+      '<form><textarea placeholder="Enter a comment or description"></textarea><button type="submit">Save</button></form>'
+    )
+    .addTo(map);
+
+  popup.on("open", function () {
+    var form = popup.getContent().querySelector("form");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var comment = form.querySelector("textarea").value;
+
+      // TODO: Store the marker location and comment in a database
+    });
+  });
 });
