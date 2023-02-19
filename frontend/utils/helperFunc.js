@@ -2,58 +2,58 @@ const helperFuncThatDoesSthHelpful = () => {
   console.log("i did sth helpful yay");
 };
 
-// initialize the map
+// Set your access token
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYWtoYWxpbDk1IiwiYSI6ImNsZWFyYmt3ZjBqMG4zdGxlN2NzNWh4MnEifQ.WkwRn5cI_HAVDtKC65GYlg";
-var map = new mapboxgl.Map({
+
+// Create a mapboxgl map
+const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/streets-v11",
-  center: [-114.0708, 51.0486],
-  zoom: 10,
+  center: [-114.0719, 51.0447],
+  zoom: 11,
 });
 
-// add a marker when the map is clicked
-map.on("click", function (e) {
-  var marker = new mapboxgl.Marker().setLngLat(e.lngLat).addTo(map);
+// Define an array of pre-defined markers
+const preDefinedMarkers = [
+  { lat: 51.05011, lng: -114.08529, description: "Unsafe area 1" },
+  { lat: 51.04861, lng: -114.07084, description: "Unsafe area 2" },
+  { lat: 51.04238, lng: -114.06856, description: "Unsafe area 3" },
+];
 
-  var popup = new mapboxgl.Popup()
-    .setLngLat(e.lngLat)
-    .setHTML(
-      '<form><textarea placeholder="Enter a comment or description"></textarea><button type="submit">Save</button></form>'
-    )
+// Add the pre-defined markers to the map
+preDefinedMarkers.forEach((marker) => {
+  const popup = new mapboxgl.Popup().setHTML(`<p>${marker.description}</p>`);
+  new mapboxgl.Marker()
+    .setLngLat([marker.lng, marker.lat])
+    .setPopup(popup)
     .addTo(map);
-
-  popup.on("open", function () {
-    var form = popup.getContent().querySelector("form");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      var comment = form.querySelector("textarea").value;
-
-      // TODO: Store the marker location and comment in a database
-    });
-  });
 });
 
-fetch("/markers")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    data.forEach(function (marker) {
-      var el = document.createElement("div");
-      el.className = "marker";
-      el.style.backgroundImage = "url(marker-icon.png)";
-      el.style.width = "50px";
-      el.style.height = "50px";
+// Get the stored markers from local storage
+const storedMarkers = JSON.parse(localStorage.getItem("markers")) || [];
 
-      var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-        "<p>" + marker.comment + "</p>"
-      );
+// Add the stored markers to the map
+storedMarkers.forEach((marker) => {
+  const popup = new mapboxgl.Popup().setHTML(`<p>${marker.description}</p>`);
+  new mapboxgl.Marker()
+    .setLngLat([marker.lng, marker.lat])
+    .setPopup(popup)
+    .addTo(map);
+});
 
-      new mapboxgl.Marker(el)
-        .setLngLat(marker.location)
-        .setPopup(popup)
-        .addTo(map);
-    });
-  });
+// Add a click event listener to the map
+map.on("click", (e) => {
+  const lat = e.lngLat.lat;
+  const lng = e.lngLat.lng;
+  const description = prompt("Please enter a description for this location:");
+
+  if (description) {
+    const popup = new mapboxgl.Popup().setHTML(`<p>${description}</p>`);
+    new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
+
+    // Store the marker in local storage
+    storedMarkers.push({ lat, lng, description });
+    localStorage.setItem("markers", JSON.stringify(storedMarkers));
+  }
+});
