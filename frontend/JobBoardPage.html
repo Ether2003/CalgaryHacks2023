@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Board Page</title>
+</head>
+<style>
+    .jobs-container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .job-container {
+        width: 250px;
+        max-width: 250px;
+        min-width: 250px;
+        margin: 1rem;
+        padding: 1rem;
+
+        border: 1px solid black;
+    }
+
+    .job-container:hover {
+        box-shadow: 5px 5px 0 0;
+    }
+</style>
+
+<body>
+    <header style="text-align: center;">
+        <h1>Jobs</h1>
+    </header>
+
+    <main>
+        <div id="root"></div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+
+        async function getJobs() {
+            const response = await fetch('http://localhost:3333/api/jobs?query=software developer');
+            const jobs = await response.json();
+            return jobs;
+        }
+
+        async function renderJobCards() {
+            const jobs = await getJobs();
+
+            //
+            const root = document.getElementById('root');
+            const jobsContainer = document.createElement('div');
+            jobsContainer.setAttribute('class', 'jobs-container');
+
+            // 
+            jobs.map((job) => {
+                const jobContainer = document.createElement('div');
+                jobContainer.setAttribute('class', 'job-container');
+
+                // dyanmic redirect
+                const redirect = document.createElement('a');
+                const redirectText = document.createTextNode('Take me there!');
+                redirect.setAttribute('href', '#')
+                redirect.appendChild(redirectText);
+
+                // dyanmic company name 
+                const companyName = document.createElement('h3');
+                const companyNameText = document.createTextNode(job.companyName);
+                companyName.appendChild(companyNameText);
+
+                // dynamic date posted
+                const datePosted = document.createElement('p');
+                const datePostedText = document.createTextNode(job.datePosted);
+                datePosted.appendChild(datePostedText);
+
+                jobContainer.appendChild(companyName);
+                jobContainer.appendChild(datePosted);
+                jobContainer.appendChild(redirect);
+
+                jobsContainer.appendChild(jobContainer);
+            });
+
+            root.appendChild(jobsContainer)
+        }
+
+
+        renderJobCards();
+    </script>
+</body>
+
+</html>
