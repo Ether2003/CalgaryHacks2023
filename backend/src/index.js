@@ -108,7 +108,7 @@ function getJsonFromRawData(url) {
  * this is for learning purposes only >:3
  */
 app.get("/", (req, res) => {
-  res.send("keep going bruh");
+  res.redirect('/pages/home');
 });
 
 app.get("/api/events", getEventsData);
