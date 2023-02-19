@@ -2,31 +2,20 @@ const helperFuncThatDoesSthHelpful = () => {
   console.log("i did sth helpful yay");
 };
 
-//map for safety page
-function initMap() {
-  var calgary = { lat: 51.0447, lng: -114.0719 };
-  var map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
-    center: calgary,
-  });
+// initialize the map
+mapboxgl.accessToken =
+  "pk.eyJ1IjoiYWtoYWxpbDk1IiwiYSI6ImNsZWFyYmt3ZjBqMG4zdGxlN2NzNWh4MnEifQ.WkwRn5cI_HAVDtKC65GYlg";
+var map = new mapboxgl.Map({
+  container: "map",
+  style: "mapbox://styles/mapbox/streets-v11",
+  center: [-114.0708, 51.0486],
+  zoom: 10,
+});
 
-  var pins = [];
-  map.addListener("click", function (event) {
-    var pin = new google.maps.Marker({
-      position: event.latLng,
-      map: map,
-    });
+// create a layer group for the markers
+var markers = new mapboxgl.Marker();
 
-    pins.push(pin);
-  });
-}
-
-function loadMapScript() {
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src =
-    "https://maps.googleapis.com/maps/api/js?key=AIzaSyAzJjkriJA6fHLXyG72ubMLomOgEO7nlQw&callback=initMap";
-  document.body.appendChild(script);
-}
-
-loadMapScript();
+// add a marker when the map is clicked
+map.on("click", function (e) {
+  markers.setLngLat(e.lngLat).addTo(map);
+});
