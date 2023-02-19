@@ -51,6 +51,15 @@ a {
   padding: 2px;
 }
 
+a:hover {
+  color: hsl(197, 37%, 24%);
+}
+
+a:active {
+  font-weight: bold;
+  border-bottom: 1px solid hsl(197, 37%, 24%);
+}
+
 .homepage {
   margin-top: 100px;
   text-align: center;
