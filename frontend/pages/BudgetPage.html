@@ -1,33 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/budget-styles.css" />
     <title>Budget Planner</title>
   </head>
   <body>
     <!--navbar-->
     <div class="navbar">
       <div id="btn1">
-          <a href="/pages/home">Home</a>
+        <a href="./homepage.html">Home</a>
       </div>
       <div id="btn2">
-          <a href="/pages/jobs">Jobs</a>
+        <a href="./JobsPage.html">Jobs</a>
       </div>
       <div id="btn3">
-          <a href="/pages/events">Events</a>
+        <a href="./EventsPage.html">Events</a>
       </div>
       <div id="btn4">
-          <a href="/pages/safety">Safety Map</a>
+        <a href="./SafetyPage.html">Safety Map</a>
       </div>
       <div id="btn5">
-          <a href="/pages/budget">Budget Planner</a>
+        <a href="./BudgetPage.html">Budget Planner</a>
       </div>
       <div id="btn6">
-          <a href="./CommunicationPage.html">Communication</a>
+        <a href="./CommunicationPage.html">Communication</a>
       </div>
-    <div class="border">Budgeting</div>
+    </div>
+
+    <div class="border"></div>
+
+    <h1 class = "title">👻 Budget Planner</h1>
+    <p id = "intro_text">Fill out the following form to generate a budget plan!</p>
+    <p id = "intro_text2">If you don't pay a certain expense, put a 0! 💸</p>
+
+    
+    
+    <form>
+
+      <div class = "inputs_all">
+      <h5 id = "income_input">Income</h5>
+      <label for="income1">Paychecks (salary after taxes): </label>
+      <input type="number" id="income1" name="income1"><br>
+    
+      <label for="income2">Other income (after taxes): </label>
+      <input type="number" id="income2" name="income2"><br>
+      <hr class="solid">
+
+      <h5 id = "expenses_input_title">Monthly Expenses 📅</h5>
+      <hr class="solid">
+      <h6 id = "expenses_input_house">Housing 🏡</h6>
+
+      <label for="expense1">Rent or mortgage: </label>
+      <input type="number" id="expense1" name="expense1"><br>
+
+      <label for="expense4">Internet, cable, and phones: </label>
+      <input type="number" id="expense4" name="expense4"><br>
+      <label for="expense3">Utilities (like electricity and gas): </label>
+      <input type="number" id="expense3" name="expense3"><br>
+
+
+      <label for="expense5">Other housing expenses (like property taxes): </label>
+      <input type="number" id="expense5" name="expense5"><br>
+      <label for="expense2">Renter's insurance or homeowner's insurance: </label>
+      <input type="number" id="expense2" name="expense2"><br>
+
+      
+      <hr class="solid">
+
+      <h6 id = "expenses_input_food">Food 🧆</h6>
+      <label for="expense6">Groceries and household supplies: </label>
+      <input type="number" id="expense6" name="expense6"><br>
+
+      <label for="expense8">Other food expenses: </label>
+      <input type="number" id="expense8" name="expense8"><br>
+
+      <label for="expense7">Meals out: </label>
+      <input type="number" id="expense7" name="expense7"><br>
+
+      <hr class="solid">
+
+      <h6 id = "expenses_input_transport">Transportation 🚋</h6>
+
+
+      <label for="expense14">Car loan: </label>
+      <input type="number" id="expense14" name="expense14"><br>
+      
+      <label for="expense10">Gas for car: </label>
+      <input type="number" id="expense10" name="expense10"><br>
+
+
+      <label for="expense13">Car insurance: </label>
+      <input type="number" id="expense13" name="expense13"><br>
+
+
+      <label for="expense11">Parking and tolls: </label>
+      <input type="number" id="expense11" name="expense11"><br>
+
+
+      <label for="expense15">Other transportation expenses: </label>
+      <input type="number" id="expense15" name="expense15"><br>
+
+      <label for="expense9">Public transportation and taxis: </label>
+      <input type="number" id="expense9" name="expense9"><br>
+
+  
+      <label for="expense12">Car maintenance (like oil changes): </label>
+      <input type="number" id="expense12" name="expense12"><br>
+
+      <hr class="solid">
+
+
+      <h6 id = "expenses_input_health">Health 🫁</h6>
+
+      <label for="expense16">Medicine: </label>
+      <input type="number" id="expense16" name="expense16"><br>
+
+      <label for="expense17">Health insurance: </label>
+      <input type="number" id="expense17" name="expense17"><br>
+
+      <label for="expense18">Other health expenses (like doctors' appointments and eyeglasses): </label>
+      <input type="number" id="expense18" name="expense18"><br>
+      <hr class="solid">
+
+      <h6 id = "expenses_input_personal">Personal and Family 💖</h6>
+
+
+      <label for="expense23">Laundry: </label>
+      <input type="number" id="expense23" name="expense23"><br>
+
+
+      <label for="expense24">Donations: </label>
+      <input type="number" id="expense24" name="expense24"><br>
+
+      <label for="expense19">Child care: </label>
+      <input type="number" id="expense19" name="expense19"><br>
+
+      <label for="expense20">Child support: </label>
+      <input type="number" id="expense20" name="expense20"><br>
+
+      <label for="expense22">Clothing and shoes: </label>
+      <input type="number" id="expense22" name="expense22"><br>
+
+
+      <label for="expense21">Money given or sent to family: </label>
+      <input type="number" id="expense21" name="expense21"><br>
+
+      <label for="expense25">Entertainment (like movies and amusement parks): </label>
+      <input type="number" id="expense25" name="expense25"><br>
+
+
+      <label for="expense26">Other personal or family expenses (like beauty care): </label>
+      <input type="number" id="expense26" name="expense26"><br>
+      <hr class="solid">
+
+      <h6 id = "expenses_input_finance">Finance 💵</h6>
+
+
+      <label for="expense27">Fees for cashier's checks and money transfers: </label>
+      <input type="number" id="expense27" name="expense27"><br>
+
+      <label for="expense28">Prepaid cards and phone cards: </label>
+      <input type="number" id="expense28" name="expense28"><br>
+
+      <label for="expense29">Bank or credit card fees: </label>
+      <input type="number" id="expense29" name="expense29"><br>
+
+      <label for="expense30">Other fees: </label>
+      <input type="number" id="expense30" name="expense30"><br>
+      <hr class="solid">
+
+      <h6 id = "expenses_input_university">University 🎓</h6>
+
+      <label for="expense31">Tuition: </label>
+      <input type="number" id="expense31" name="expense31"><br>
+
+      <label for="expense32">Supplies: </label>
+      <input type="number" id="expense32" name="expense32"><br>
+
+      <label for="expense33">Technology: </label>
+      <input type="number" id="expense33" name="expense33"><br>
+
+
+      <label for="expense34">Student Loans: </label>
+      <input type="number" id="expense34" name="expense34"><br>
+      
+      <hr class="solid">
+
+      <h6 id = "expenses_input_other">Other ⛄️</h6>
+
+      <label for="expense35">Credit Cards and Savings: </label>
+      <input type="number" id="expense35" name="expense35"><br>
+
+
+      <label for="expense36">Other Expenses This Month: </label>
+      <input type="number" id="expense36" name="expense36"><br>
+    </div>
+
+     
+
+    
+      <input type ="submit" id ="submit" onclick="calculate()"></input><br>
+    
+      <label id = "result1" for="result"> 🌟 Result: </label>
+      <input type="number" id="result" name="result" readonly>
+    </form>
+
+
+    <script>
+      function calculate() {
+        
+        var income1 = document.getElementById("income1").value;
+        var income2 = document.getElementById("income2").value;
+
+        var expense1 = document.getElementById("expense1").value;
+        var expense2 = document.getElementById("expense2").value;
+        var expense3 = document.getElementById("expense3").value;
+        var expense4 = document.getElementById("expense4").value;
+        var expense5 = document.getElementById("expense5").value;
+        var expense6 = document.getElementById("expense6").value;
+        var expense7 = document.getElementById("expense7").value;
+        var expense8 = document.getElementById("expense8").value;
+        var expense9 = document.getElementById("expense9").value;
+        var expense10 = document.getElementById("expense10").value;
+        var expense11 = document.getElementById("expense11").value;
+        var expense12 = document.getElementById("expense12").value;
+        var expense13 = document.getElementById("expense13").value;
+        var expense14 = document.getElementById("expense14").value;
+        var expense15 = document.getElementById("expense15").value;
+        var expense16 = document.getElementById("expense16").value;
+        var expense17 = document.getElementById("expense17").value;
+        var expense18 = document.getElementById("expense18").value;
+        var expense19 = document.getElementById("expense19").value;
+        var expense20 = document.getElementById("expense20").value;
+        var expense21 = document.getElementById("expense21").value;
+        var expense22 = document.getElementById("expense22").value;
+        var expense23 = document.getElementById("expense23").value;
+        var expense24 = document.getElementById("expense24").value;
+        var expense25 = document.getElementById("expense25").value;
+        var expense26 = document.getElementById("expense26").value;
+        var expense27 = document.getElementById("expense27").value;
+        var expense28 = document.getElementById("expense28").value;
+        var expense29 = document.getElementById("expense29").value;
+        var expense30 = document.getElementById("expense30").value;
+        var expense31 = document.getElementById("expense31").value;
+        var expense32 = document.getElementById("expense32").value;
+        var expense33 = document.getElementById("expense33").value;
+        var expense34 = document.getElementById("expense34").value;
+        var expense35 = document.getElementById("expense35").value;
+        var expense36 = document.getElementById("expense36").value;
+  
+        var result = document.getElementById("result");
+        var sum = (parseInt(income1) + parseInt(income2)) - (parseInt(expense1)+ parseInt(expense2)+parseInt(expense3)+parseInt(expense4)+parseInt(expense5)+parseInt(expense6)+parseInt(expense7)+parseInt(expense8)+parseInt(expense9)+parseInt(expense10)+parseInt(expense11)+parseInt(expense12)+parseInt(expense13)+parseInt(expense14)+parseInt(expense15)+parseInt(expense16)+parseInt(expense17)+parseInt(expense18)+parseInt(expense19)+parseInt(expense20)+parseInt(expense21)+parseInt(expense22)+parseInt(expense23)+parseInt(expense24)+parseInt(expense25)+parseInt(expense26)+parseInt(expense27)+parseInt(expense28)+parseInt(expense29)+parseInt(expense30)+parseInt(expense31)+parseInt(expense32)+parseInt(expense33)+parseInt(expense34)+parseInt(expense35)+parseInt(expense36));
+        result.value = sum;
+        event.preventDefault()
+
+      }
+      </script> 
+
+    
+
+
   </body>
 </html>
