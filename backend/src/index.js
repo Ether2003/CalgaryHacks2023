@@ -7,10 +7,15 @@ const express = require('express');
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 const cors = require('cors');
+const path = require('path');
 
 // create an instance of express
 const app = express();
 app.use(cors());
+
+//
+console.log(path.join(__dirname, '..', '..', '/frontend/styles'))
+app.use(express.static(path.join(__dirname, '..', '..', 'frontend/')));
 
 /**
  * this function gets the raw data from the https://www.jobbank.gc.ca website.
@@ -87,6 +92,36 @@ app.get('/api/jobs', (request, response) => {
             });
         })
 });
+
+
+/**
+ * render hompage.html
+ */
+app.get('/pages/home', (request, response) => {
+    response.sendFile(path.join(__dirname, '..', '..', 'frontend/pages/homepage.html'))
+});
+
+/**
+ * render JobBoardPage.html
+ */
+app.get('/pages/jobs', (request, response) => {
+    response.sendFile(path.join(__dirname, '..', '..', 'frontend/pages/JobBoardPage.html'))
+});
+
+/**
+ * render SafetyPage.html
+ */
+app.get('/pages/safety', (request, response) => {
+    response.sendFile(path.join(__dirname, '..', '..', 'frontend/pages/SafetyPage.html'))
+});
+
+/**
+ * render {Insert Jay Nguyens Stuff}.html
+ */
+app.get('/pages/jaynguyen', (request, response) => {
+
+});
+
 
 // open port 🐸
 app.listen(3333, () => console.log('listening @ http://localhost:3333'));
