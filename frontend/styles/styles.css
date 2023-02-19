@@ -81,6 +81,12 @@ a:active {
   font-size: 2rem;
 }
 
+.safety p {
+  padding-top: 10px;
+  text-align: center;
+  font-size: large;
+}
+
 p {
   padding-top: 10px;
   text-align: center;
