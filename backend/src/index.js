@@ -137,7 +137,12 @@ app.get("/pages/home", (request, response) => {
     path.join(__dirname, "..", "..", "frontend/pages/homepage.html")
   );
 });
-
+/**render budget page */
+app.get("/pages/budget", (request, response) => {
+  response.sendFile(
+    path.join(__dirname, "..", "..", "frontend/pages/BudgetPage.html")
+  );
+});
 /**
  * render JobBoardPage.html
  */
