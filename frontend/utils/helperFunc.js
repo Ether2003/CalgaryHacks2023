@@ -13,7 +13,7 @@ var map = new mapboxgl.Map({
 });
 
 // create a layer group for the markers
-var markers = new mapboxgl.Marker();
+//var markers = new mapboxgl.Marker();
 
 // add a marker when the map is clicked
 map.on("click", function (e) {
@@ -36,4 +36,105 @@ map.on("click", function (e) {
       // TODO: Store the marker location and comment in a database
     });
   });
+});
+
+fetch("/markers")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    data.forEach(function (marker) {
+      var el = document.createElement("div");
+      el.className = "marker";
+      el.style.backgroundImage = "url(marker-icon.png)";
+      el.style.width = "50px";
+      el.style.height = "50px";
+
+      var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        "<p>" + marker.comment + "</p>"
+      );
+
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.location)
+        .setPopup(popup)
+        .addTo(map);
+    });
+  });
+
+var markers = [
+  {
+    coordinates: [-114.0719, 51.0447],
+    description: "Unsafe park at night",
+  },
+  {
+    coordinates: [-114.0609, 51.0542],
+    description: "Unsafe area near downtown",
+  },
+  {
+    coordinates: [-114.0677, 51.0458],
+    description: "Unsafe alleyway with poor lighting",
+  },
+];
+
+// add markers to the map
+markers.forEach(function (marker) {
+  var el = document.createElement("div");
+  el.className = "marker";
+
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.coordinates)
+    .setPopup(
+      new mapboxgl.Popup({ offset: 25 }) // add popups
+        .setHTML("<h3>" + marker.description + "</h3>")
+    )
+    .addTo(map);
+});
+
+var markers = [
+  {
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      coordinates: [-114.0719, 51.0447],
+    },
+    properties: {
+      description: "Unsafe area near downtown",
+    },
+  },
+  {
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      coordinates: [-114.0609, 51.0542],
+    },
+    properties: {
+      description: "Unsafe park at night",
+    },
+  },
+  {
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      coordinates: [-114.0677, 51.0458],
+    },
+    properties: {
+      description: "Unsafe alleyway with poor lighting",
+    },
+  },
+];
+
+// add markers to map
+markers.forEach(function (marker) {
+  // create a HTML element for each feature
+  var el = document.createElement("div");
+  el.className = "marker";
+
+  // make a marker for each feature and add to the map
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .setPopup(
+      new mapboxgl.Popup({ offset: 25 }) // add popups
+        .setHTML("<h3>" + marker.properties.description + "</h3>")
+    )
+    .addTo(map);
 });
