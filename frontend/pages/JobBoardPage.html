@@ -1,158 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Board Page</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/styles/styles.css" />
-</head>
-<style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <style>
     body {
-        font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
     }
 
     .jobs-container {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
     }
 
     .job-container {
-        width: 250px;
-        max-width: 250px;
-        min-width: 250px;
-        margin: 1rem;
-        padding: 1rem;
+      width: 250px;
+      max-width: 250px;
+      min-width: 250px;
+      margin: 1rem;
+      padding: 1rem;
 
-        border: 1px solid black;
-        transition: .1s ease-in;
+      border: 1px solid black;
+      transition: 0.1s ease-in;
     }
 
     .job-container:hover {
-        padding: 1.5rem;
-        box-shadow: 5px 5px 0 0;
+      padding: 1.5rem;
+      box-shadow: 5px 5px 0 0;
     }
 
     button:hover {
-        transition: .1s ease-in;
-        box-shadow: 5px 5px 0 0;
+      transition: 0.1s ease-in;
+      box-shadow: 5px 5px 0 0;
     }
-</style>
+  </style>
 
-<body>
+  <body>
     <div class="navbar">
-        <div id="btn1">
-            <a href="/pages/home">Home</a>
-        </div>
-        <div id="btn2">
-            <a href="/pages/jobs">Jobs</a>
-        </div>
-        <div id="btn3">
-            <a href="/pages/events">Events</a>
-        </div>
-        <div id="btn4">
-            <a href="/pages/safety">Safety Map</a>
-        </div>
-        <div id="btn5">
-            <a href="/pages/budget">Budget Planner</a>
-        </div>
-        <div id="btn6">
-            <a href="./CommunicationPage.html">Communication</a>
-        </div>
+      <div id="btn1">
+        <a href="/pages/home">Home</a>
+      </div>
+      <div id="btn2">
+        <a href="/pages/jobs">Jobs</a>
+      </div>
+      <div id="btn3">
+        <a href="/pages/events">Events</a>
+      </div>
+      <div id="btn4">
+        <a href="/pages/safety">Safety Map</a>
+      </div>
+      <div id="btn5">
+        <a href="/pages/budget">Budget Planner</a>
+      </div>
+      <div id="btn6">
+        <a href="./CommunicationPage.html">Communication</a>
+      </div>
     </div>
     <div class="border"></div>
     <div class="homepage">
-        <h1><b>Job Board 🐸</b></h1>
+      <h1><b>Job Board 🐸</b></h1>
     </div>
 
-    <header style="text-align: center;">
-        <input id="searchbar-id" type="text" placeholder="Search For Jobs..." style="
-            width: 80%;
-            padding: 1rem;
-            border-radius: 24px;
-            border: 1px solid black;
-        " />
-        <button onclick="renderJobCards(); document.getElementById('root').innerHTML='';" style="
-            width: 5%;
-            height: 50px;
-            border: none;
-            cursor: pointer;
-            background-color: rgb(85, 217, 85);
-        ">
-            Search
-        </button>
+    <header style="text-align: center">
+      <input
+        id="searchbar-id"
+        type="text"
+        placeholder="Search For Jobs..."
+        style="
+          width: 80%;
+          padding: 1rem;
+          border-radius: 24px;
+          border: 1px solid black;
+        "
+      />
+      <button
+        onclick="renderJobCards(); document.getElementById('root').innerHTML='';"
+        style="
+          width: 5%;
+          height: 50px;
+          border: none;
+          cursor: pointer;
+          background-color: rgb(85, 217, 85);
+        "
+      >
+        Search
+      </button>
     </header>
 
     <main>
-        <div id="root"></div>
+      <div id="root"></div>
     </main>
 
-    <footer>
-
-    </footer>
+    <footer></footer>
     <script>
-        async function getJobs() {
-            let query = document.getElementById('searchbar-id').value;
+      async function getJobs() {
+        let query = document.getElementById("searchbar-id").value;
 
-            if (!query || query == "") {
-                alert('I cant search nothing');
-                return;
-            }
-
-            const response = await fetch(`http://localhost:3333/api/jobs?query=${query}`);
-            const jobs = await response.json();
-            return jobs;
+        if (!query || query == "") {
+          alert("I cant search nothing");
+          return;
         }
 
-        async function renderJobCards() {
-            const jobs = await getJobs();
+        const response = await fetch(
+          `http://localhost:3333/api/jobs?query=${query}`
+        );
+        const jobs = await response.json();
+        return jobs;
+      }
 
-            //
-            const root = document.getElementById('root');
-            const jobsContainer = document.createElement('div');
-            jobsContainer.setAttribute('class', 'jobs-container');
+      async function renderJobCards() {
+        const jobs = await getJobs();
 
-            // 
-            jobs.map((job) => {
-                const jobContainer = document.createElement('div');
-                jobContainer.setAttribute('class', 'job-container');
+        //
+        const root = document.getElementById("root");
+        const jobsContainer = document.createElement("div");
+        jobsContainer.setAttribute("class", "jobs-container");
 
-                // dyanmic redirect
-                const redirect = document.createElement('a');
-                const redirectText = document.createTextNode('Take me there!');
-                redirect.setAttribute('href', job.redirect)
-                redirect.setAttribute('target', "_blank")
-                redirect.appendChild(redirectText);
+        //
+        jobs.map((job) => {
+          const jobContainer = document.createElement("div");
+          jobContainer.setAttribute("class", "job-container");
 
-                // dyanmic company name 
-                const companyName = document.createElement('h3');
-                const companyNameText = document.createTextNode(job.companyName);
-                companyName.appendChild(companyNameText);
+          // dyanmic redirect
+          const redirect = document.createElement("a");
+          const redirectText = document.createTextNode("Take me there!");
+          redirect.setAttribute("href", job.redirect);
+          redirect.setAttribute("target", "_blank");
+          redirect.appendChild(redirectText);
 
-                // dynamic date posted
-                const datePosted = document.createElement('p');
-                const datePostedText = document.createTextNode(job.datePosted);
-                datePosted.appendChild(datePostedText);
+          // dyanmic company name
+          const companyName = document.createElement("h3");
+          const companyNameText = document.createTextNode(job.companyName);
+          companyName.appendChild(companyNameText);
 
-                jobContainer.appendChild(companyName);
-                jobContainer.appendChild(datePosted);
-                jobContainer.appendChild(redirect);
+          // dynamic date posted
+          const datePosted = document.createElement("p");
+          const datePostedText = document.createTextNode(job.datePosted);
+          datePosted.appendChild(datePostedText);
 
-                jobsContainer.appendChild(jobContainer);
-            });
+          jobContainer.appendChild(companyName);
+          jobContainer.appendChild(datePosted);
+          jobContainer.appendChild(redirect);
 
-            root.appendChild(jobsContainer)
-        }
+          jobsContainer.appendChild(jobContainer);
+        });
 
-
-
+        root.appendChild(jobsContainer);
+      }
     </script>
-</body>
-
+  </body>
 </html>
