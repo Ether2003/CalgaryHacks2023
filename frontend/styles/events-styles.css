@@ -1,0 +1,109 @@
+#event-card {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  border-radius: 10px;
+}
+#event-card p,
+#event-card a {
+  padding: 10px;
+}
+#event-card a {
+  text-decoration: underline;
+  color: #3498db;
+}
+#events {
+  display: grid;
+  /*Using the full width/height of the designated box elements, use fr as in example below */
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr;
+  grid-gap: 20px;
+  font-size: 12px;
+}
+.events-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+#city {
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+#loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.submit-btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  border-radius: 10px;
+}
+#event-type {
+  border: 1px solid black; /* Remove borders */
+  padding: 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  border-radius: 10px;
+}
+
+#date {
+  border: 1px solid black; /* Remove borders */
+  padding: 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  border-radius: 10px;
+}
+
+#such-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#errorMsg {
+  text-align: center;
+}
+#event-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.eventpage {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 2rem;
+}

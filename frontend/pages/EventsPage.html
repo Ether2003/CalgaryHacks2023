@@ -1,34 +1,170 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <metacharset charset="UTF-8" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/events-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<head>
-    <metacharset="utf-8" />
-    <link rel="stylesheet" href="../styles/styles.css">
-</head>
-
-<body>
+  <body>
     <div class="navbar">
-        <div id="btn1">
-            <a href="./JobsPage.html">Jobs</a>
-        </div>
-        <div id="btn2">
-            <a href="./EventsPage.html">Events</a>
-        </div>
-        <div id="btn3">
-            <a href="./SafetyPage.html">Safety Map</a>
-        </div>
-        <div id="btn4">
-            <a href="./BudgetPage.html">Budget Planner</a>
-        </div>
-        <div id="btn5">
-            <a href="./CommunicationPage.html">Communication</a>
-        </div>
-
+      <div id="btn1">
+        <a href="/pages/home">Home</a>
+      </div>
+      <div id="btn2">
+        <a href="/pages/jobs">Jobs</a>
+      </div>
+      <div id="btn3">
+        <a href="/pages/events">Events</a>
+      </div>
+      <div id="btn4">
+        <a href="/pages/safety">Safety Map</a>
+      </div>
+      <div id="btn5">
+        <a href="/pages/budget">Budget Planner</a>
+      </div>
+      <div id="btn6">
+        <a href="./CommunicationPage.html">Communication</a>
+      </div>
     </div>
-    <div class="border">
-    </div>
-    <div class="homepage">
-        <h1><b>🚀 Upcoming events</b></h1>
-        </div>
 
-</body>
+    <div class="border"></div>
+    <div class="eventpage">
+      <h1><b>🚀 Upcoming events</b></h1>
+      <form id="events-form">
+        <input
+          required
+          placeholder="Enter City..."
+          id="city"
+          type="text"
+          name="city"
+        />
+
+        <select name="eventType" id="event-type">
+          <option value="">Any</option>
+          <option value="Virtual-Event">Virtual Event</option>
+        </select>
+        <select name="date" id="date">
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="week">This Week</option>
+          <option value="next_week">Next Week</option>
+          <option value="month">This Month</option>
+          <option value="next_month">Next Month</option>
+        </select>
+        <button type="submit" class="submit-btn">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+      <br />
+      <div class="events-container">
+        <div id="loader"></div>
+        <div id="such-empty">
+          <h4>Such Empty...Search to start exploring</h4>
+          <iframe
+            src="https://giphy.com/embed/OSuaE6AknuRc7syZXp"
+            width="480"
+            height="360"
+            frameborder="0"
+            class="giphy-embed"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div id="events"></div>
+        <div id="nothingFound"></div>
+      </div>
+    </div>
+    <script>
+      const suchEmpty = document.getElementById("such-empty");
+      const form = document.getElementById("events-form");
+      const eventContents = document.getElementById("events");
+      const errorMsg = document.getElementById("nothingFound");
+
+      /*function to make fetch request for events */
+      const getEvents = async (city, type, date) => {
+        const response = await fetch(
+          `http://localhost:3333/api/events?city=${city}&eventType=${type}&date=${date}`
+        )
+          .then((response) => response.json())
+          .then((data) => data)
+          .catch((err) => console.log(err));
+
+        const events = response;
+
+        console.log("events are", events);
+        return events;
+      };
+
+      const renderEvents = async (city, type, date) => {
+        //render events on the page
+
+        document.getElementById("loader").style.display = "block";
+        errorMsg.innerHTML = "";
+        const eventsList = await getEvents(city, type, date);
+        if (eventsList) {
+          eventsList.map((event) => {
+            document.getElementById("loader").style.display = "none";
+            const eventCard = document.createElement("div");
+            eventCard.id = "event-card";
+            const eventTitle = document.createElement("h3");
+            const eventDate = document.createElement("p");
+            const eventDescription = document.createElement("p");
+            const eventAddress = document.createElement("p");
+            const eventLink = document.createElement("a");
+            const eventCardImage = document.createElement("img");
+            eventCardImage.id = "event-img";
+            eventCardImage.src =
+              event.image ||
+              "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80";
+            eventCardImage.alt = "a picture wow look at that";
+
+            eventLink.href = event.link;
+            eventLink.target = "_blank";
+            const linkText = document.createTextNode("More Info");
+            const titleText = document.createTextNode(event?.title);
+            const descriptionText = document.createTextNode(event.description);
+
+            const dateText = document.createTextNode(event?.date?.when);
+            const addressText = document.createTextNode(event.address[0]);
+
+            eventTitle.appendChild(titleText);
+            eventAddress.appendChild(addressText);
+            eventDate.appendChild(dateText);
+            eventLink.appendChild(linkText);
+            eventDescription.appendChild(descriptionText);
+            eventCard.appendChild(eventTitle);
+            eventCard.appendChild(eventCardImage);
+            eventCard.appendChild(eventAddress);
+            eventCard.appendChild(eventDate);
+            eventCard.appendChild(eventDescription);
+            eventCard.appendChild(eventLink);
+            eventContents.appendChild(eventCard);
+          });
+        } else {
+          document.getElementById("loader").style.display = "none";
+          errorMsg.innerHTML = "<h2>Woops! Nothing found</h2>";
+        }
+      };
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("submitted");
+        suchEmpty.style.display = "none";
+        eventContents.innerHTML = "";
+        const cityInput = document.getElementById("city");
+        const eventTypeSelect = document.getElementById("event-type");
+        const eventDateSelect = document.getElementById("date");
+        renderEvents(
+          cityInput.value,
+          eventTypeSelect.value,
+          eventDateSelect.value
+        );
+        cityInput.value = "";
+      });
+    </script>
+  </body>
+</html>
