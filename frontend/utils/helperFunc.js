@@ -85,15 +85,3 @@ function displayPopup(e) {
 map.on("mousemove", function (e) {
   displayPopup(e);
 });
-
-// Get a reference to the descriptions element
-var descriptionsEl = document.getElementById("descriptions");
-
-// Loop through the markers and add a mouseover event listener
-markers.forEach(function (marker) {
-  marker.on("mouseover", function () {
-    // Get the description of the marker and add it to the descriptions element
-    var description = marker.getPopup().getContent();
-    descriptionsEl.innerHTML = description;
-  });
-});
