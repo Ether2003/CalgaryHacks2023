@@ -20,3 +20,13 @@ function initMap() {
     pins.push(pin);
   });
 }
+
+function loadMapScript() {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src =
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyAzJjkriJA6fHLXyG72ubMLomOgEO7nlQw&callback=initMap";
+  document.body.appendChild(script);
+}
+
+loadMapScript();
