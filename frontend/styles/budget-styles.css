@@ -1,0 +1,310 @@
+body {
+    background-color: #fff;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 1rem;
+  }
+  .border {
+    border: 1px solid black;
+    background-color: black;
+    margin-top: 10px;
+  }
+  
+  #btn1 {
+    border-radius: 25px;
+    padding: 2px;
+    width: 5%;
+    box-shadow: 1px 3px 2px lightblue;
+  }
+  #btn2 {
+    box-shadow: 1px 3px 2px lightgrey;
+    border-radius: 25px;
+    padding: 2px;
+    width: 5%;
+  }
+  #btn3 {
+    box-shadow: 1px 3px 2px lightgreen;
+    border-radius: 25px;
+    padding: 2px;
+  }
+  #btn4 {
+    box-shadow: 1px 3px 2px lightgrey;
+  
+    border-radius: 25px;
+    padding: 2px;
+  }
+  #btn5 {
+    box-shadow: 1px 3px 2px lightblue;
+    border-radius: 25px;
+    padding: 2px;
+  }
+  
+  #btn6 {
+    box-shadow: 1px 3px 2px lightgreen;
+    border-radius: 25px;
+    padding: 2px;
+  }
+  
+  button {
+    background-color: d9d9d9;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    padding: 2px;
+    color: hsl(0, 0%, 0%);
+  }
+  
+  a:hover {
+    color: hsl(197, 77%, 30%);
+  }
+  
+  a:active {
+    font-weight: bold;
+    border-bottom: 1px solid hsl(197, 77%, 30%);
+  }
+  
+  .homepage {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  p {
+    padding-top: 10px;
+    text-align: center;
+  }
+
+
+/*work done by Khadeeja*/
+
+
+/* Dashed border */
+hr.dashed {
+    border-top: 3px dashed #2A9D8F;
+  }
+
+
+
+
+
+/* Dotted border */
+hr.dotted {
+    border-top: 3px dotted #2A9D8F;
+  }
+  /* Solid border */
+hr.solid {
+    border-top: 0.5px solid #2A9D8F;
+  }
+
+
+.title {
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 350%; 
+
+}
+
+#intro_text {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 150%; 
+    margin: 0%;
+    padding: 0px;
+}
+
+#intro_text2 {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 150%; 
+    margin: 0%;
+    padding: 0px;
+}
+
+.inputs_all {
+    
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    line-height: 50px;
+    
+   
+}
+
+#income_input {
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    margin: 0%;
+    padding-top: 10px;
+    
+    
+}
+
+#expenses_input_house{
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    margin: 0%;
+    padding: 0px;
+    
+}
+
+#expenses_input_food {
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    margin: 0%;
+    padding: 0px;
+    
+}
+
+#expenses_input_transport {
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    margin: 0%;
+    padding: 0px;
+    
+
+}
+
+#expenses_input_health  {
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    margin: 0%;
+    padding: 0px;
+    
+}
+
+#expenses_input_finance {
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    margin: 0%;
+    padding: 0px;
+    
+}
+
+#expenses_input_university {
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    margin: 0%;
+    padding: 0px;
+    
+}
+  
+#expenses_input_other {
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+    margin: 0%;
+    padding: 0px;
+
+    
+    text-align: center;
+    
+}
+
+#expenses_input_personal{
+    font-family: 'Inter', sans-serif;
+    font-size: 115%;  
+
+    
+    text-align: center;
+    margin: 0%;
+    padding: 0px;
+
+}
+
+
+
+#expenses_input_title{
+
+    font-family: 'Inter', sans-serif;
+    font-size: 135%;  
+
+    margin: 2%;
+    padding: 2px;
+    text-align: center;
+    
+}
+
+#submit {
+    font-family: 'Inter', sans-serif;
+    font-size: 135%;  
+
+
+    text-align: center;
+    height: 100px;
+    line-height: 50px;
+    
+    padding: 50%;
+    
+    background-color: #2A9D8F; /* Green */
+   
+    padding: 15px 32px;
+    
+    text-decoration: none;
+   
+    font-size: 16px;
+    margin-left: 46%;
+    margin-right: 46%;
+    margin-top: 10%;
+    border-radius: 12px;
+
+    color: #fff;
+    transition-duration: 0.4s;
+
+      
+
+}
+
+#submit:hover {
+    background-color: white; /* Green */
+    color: black;
+  }
+
+#result {
+    font-family: 'Inter', sans-serif;
+    font-size: 135%;  
+
+    
+    margin: 2%;
+    padding: 2px;
+    text-align: center;
+
+}
+
+#result1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 135%;  
+
+    margin-left: 26%;
+    padding: 2px;
+    text-align: center;
+
+}
