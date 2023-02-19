@@ -79,12 +79,14 @@ a:active {
   margin-top: 100px;
   text-align: center;
   font-size: 2rem;
+  font-family: "Inter", sans-serif;
 }
 
 .safety p {
   padding-top: 10px;
   text-align: center;
   font-size: large;
+  font-family: "Inter", sans-serif;
 }
 
 #map {

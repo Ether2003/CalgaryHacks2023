@@ -57,3 +57,31 @@ map.on("click", (e) => {
     localStorage.setItem("markers", JSON.stringify(storedMarkers));
   }
 });
+
+//function to display the popup on hover
+
+function displayPopup(e) {
+  var features = map.queryRenderedFeatures(e.point, { layers: ["markers"] });
+  if (!features.length) {
+    return;
+  }
+  var feature = features[0];
+  var popup = new mapboxgl.Popup({ offset: 25 })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML(
+      "<h3>" +
+        feature.properties.title +
+        "</h3><p>" +
+        feature.properties.description +
+        "</p>"
+    )
+    .addTo(map);
+  map.on("mouseout", function () {
+    popup.remove();
+  });
+}
+
+// Add a listener to display the popup on hover
+map.on("mousemove", function (e) {
+  displayPopup(e);
+});
