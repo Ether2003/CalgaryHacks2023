@@ -113,7 +113,7 @@
         }
 
         const response = await fetch(
-          `http://localhost:3333/api/jobs?query=${query}`
+          `https://calgaryhacks2023-production.up.railway.app/api/jobs?query=${query}`
         );
         const jobs = await response.json();
         return jobs;

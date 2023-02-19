@@ -87,7 +87,7 @@
       /*function to make fetch request for events */
       const getEvents = async (city, type, date) => {
         const response = await fetch(
-          `http://localhost:3333/api/events?city=${city}&eventType=${type}&date=${date}`
+          `https://calgaryhacks2023-production.up.railway.app/api/events?city=${city}&eventType=${type}&date=${date}`
         )
           .then((response) => response.json())
           .then((data) => data)
