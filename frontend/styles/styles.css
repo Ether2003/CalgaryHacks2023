@@ -87,6 +87,10 @@ a:active {
   font-size: large;
 }
 
+#map {
+  height: 400px;
+}
+
 p {
   padding-top: 10px;
   text-align: center;
