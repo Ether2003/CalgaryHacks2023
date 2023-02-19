@@ -49,15 +49,16 @@ body {
 a {
   text-decoration: none;
   padding: 2px;
+  color: hsl(0, 0%, 0%);
 }
 
 a:hover {
-  color: hsl(197, 37%, 24%);
+  color: hsl(197, 77%, 30%);
 }
 
 a:active {
   font-weight: bold;
-  border-bottom: 1px solid hsl(197, 37%, 24%);
+  border-bottom: 1px solid hsl(197, 77%, 30%);
 }
 
 .homepage {
