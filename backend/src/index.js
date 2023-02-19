@@ -73,7 +73,7 @@ function getJsonFromRawData(url) {
  * this is for learning purposes only >:3 
  */
 app.get('/api/jobs', (request, response) => {
-    const query = request.query.query; 
+    const query = request.query.query;
     const url = `https://www.jobbank.gc.ca/jobsearch/jobsearch?searchstring=${query}&locationstring=Calgary%2C+AB&sort=M`;
 
     getJsonFromRawData(url)
