@@ -1,6 +1,7 @@
 <div align="center">
   <h1> Calgary Hackathon 2023 </h1>
   <h3> Our implementation for the 2023 Calgary Hacks theme</h3>
+  <p>Studying abroad is a tough process, let us help make it easier</p>
 </div>
 
 <div align="center">
