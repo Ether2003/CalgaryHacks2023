@@ -1,6 +1,6 @@
 <div align="center">
   <h1> Calgary Hackathon 2023 </h1>
-  <h2> 🥳 Winners for the Best internationalization/accessibility support bounty 🥳 </h2>
+  <h2> Winners for the Best internationalization/accessibility support bounty 🥳 </h2>
   <h3> Our implementation for the 2023 Calgary Hacks theme</h3>
   
 </div>
