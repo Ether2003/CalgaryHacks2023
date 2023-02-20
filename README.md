@@ -13,5 +13,8 @@
     <a href="https://github.com/akhalil95">Ayesha</a>,
     <a href="https://github.com/benjysboxers">Phillip</a>
   </h3>
+    <a href="https://devpost.com/software/myhub?ref_content=my-projects-tab&ref_feature=my_projects">
+      Devpost Sumbission 
+    </a>
 </div>
 
